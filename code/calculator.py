@@ -1,10 +1,30 @@
 #get our little things together
 import random
 import signature
+import PySimpleGUI as sg
 
+#one shot hot shots for GUI
 
+#declaring variables needed throughout the program
 operators = ["+", "-", "/", "*","**"]
 running = True
+#
+layout = [
+    [sg.Text('Hi! Please Enter your Numbers and desired operators!')]
+    [sg.Text('First Number', size=(8,1)),sg.InputText()]
+    
+    
+    
+]
+
+def create_windows(theme):
+    sg.ChangeLookAndFeel(theme)
+    return sg.Window("Calculator", layout)
+window = create_windows("DarkRed2")
+window = sg.Window('Simple data entry window', layout)
+event, values = window.read()
+window.close()
+
 
 while running:
     user_correct = False
