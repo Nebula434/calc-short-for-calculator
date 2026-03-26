@@ -13,8 +13,23 @@ while running:
 
     #need to create user input
     user_number = int(input("Please input the first number for ur calculation:\n"))
-    user_operator = str(input(f"What type of operator do you need?\n{operators}\n(Add,Subtract,Divide,Multiply,To The Power of)\n"))
+    user_operator = str(input(f"What type of operator do you need?\n{operators}\n(Add,Subtract,Divide,Multiply,To The Power of, random)\n"))
     user_number_2 = input("The second number please?: \n")
+    
+    if user_operator == "random":
+        random_number = random.randint(0, 5)
+        if random_number == 1:
+            selected_operator = "+"
+        if random_number == 2:
+            selected_operator = "-"
+        if random_number == 3:
+            selected_operator = "/"
+        if random_number == 4:
+            selected_operator = "*"
+        if random_number == 5:
+            selected_operator = "**"
+    print(f"Random? You got: {selected_operator}")
+    
     user_guess = int(input("Now, what number do you think will come out?\n Be honest!\n"))
     # all input has been grabbed
 
@@ -31,19 +46,7 @@ while running:
     if user_operator == operators[-1] or user_operator == "^" or user_operator == "To the power of":
         selected_operator = "**"
     #some fun
-    if user_operator == "random":
-        random_number = random.uniform(1,5)
-        if random_number == 1:
-            selected_operator = "+"
-        if random_number == 2:
-            selected_operator = "-"
-        if random_number == 3:
-            selected_operator = "/"
-        if random_number == 4:
-            selected_operator = "*"
-        if random_number == 5:
-            selected_operator = "**"
-    print(f"You rolled!: {selected_operator}")
+
     
     #bring it together
     def Calculate(number1, operator, number2):
@@ -74,7 +77,9 @@ while running:
     answer = int(Calculate(user_number,selected_operator,user_number_2))
     if guessed_number == answer:
         print("Wow great job you guessed correctly! The answer is\n", answer)
+        UserScore =+ 1
         user_correct = True
+        print(f"Current User Score is: {UserScore}")
 
     if guessed_number != answer:
         print("Yikes! Numbers are hard sometimes.\nThe answer is:",answer)
@@ -87,7 +92,6 @@ while running:
         
         
     if (user_continue == "Yes" or user_continue == "Y") and user_correct == True:
-        UserScore =+ 1
         print(f"So far you've got, {UserScore} correct.")
         
         
