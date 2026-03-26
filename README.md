@@ -5,7 +5,7 @@ Calculator guessing game! Input ur equation, guess how much it'll be!
 ## Then, open up calculator.py.
 ## Click Run
 ## Everything will appear in your IDE's output section!
-
+# ====================================================
 # Something doesnt work?
 Please open an issue here on the git!
 
