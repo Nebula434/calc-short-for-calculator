@@ -11,7 +11,6 @@ while running:
     selected_operator = ""
     guessed_number = 0 
 
-
     #need to create user input
     user_number = int(input("Please input the first number for ur calculation:\n"))
     user_operator = str(input(f"What type of operator do you need?\n{operators}\n(Add,Subtract,Divide,Multiply,To The Power of)\n"))
@@ -31,7 +30,21 @@ while running:
         selected_operator = "*"
     if user_operator == operators[-1] or user_operator == "^" or user_operator == "To the power of":
         selected_operator = "**"
-
+    #some fun
+    if user_operator == "random":
+        random_number = random.uniform(1,5)
+        if random_number == 1:
+            selected_operator = "+"
+        if random_number == 2:
+            selected_operator = "-"
+        if random_number == 3:
+            selected_operator = "/"
+        if random_number == 4:
+            selected_operator = "*"
+        if random_number == 5:
+            selected_operator = "**"
+    print(f"You rolled!: {selected_operator}")
+    
     #bring it together
     def Calculate(number1, operator, number2):
         number1 = int(number1)
@@ -66,7 +79,7 @@ while running:
     if guessed_number != answer:
         print("Yikes! Numbers are hard sometimes.\nThe answer is:",answer)
     
-    user_continue = str(input("Got another calculation?\n"))
+    user_continue = str(input("Got another calculation?\nYes or No?:"))
     user_continue = user_continue.upper()
 
     if (user_continue == "Yes" or user_continue == "Y"):
